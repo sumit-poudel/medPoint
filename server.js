@@ -12,6 +12,9 @@ app.get('/', (req, res) => {
   res.sendFile(_dirname + "/index.html")
 })
 
+app.get('/login', (req, res) => {
+  res.sendFile(_dirname + "/login.html")
+})
 app.listen(port, (error) => {
   if (error) console.log("error starting server");
   else console.log("server started at post " + port);
