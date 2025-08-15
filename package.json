@@ -12,6 +12,7 @@
     "backdev": "nodemon server.js",
     "watch": "npx @tailwindcss/cli -i ./tailwind.css -o ./public/style.css --watch",
     "build": "npx @tailwindcss/cli -i ./tailwind.css -o ./public/style.css ",
+    "postinstall":"npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
