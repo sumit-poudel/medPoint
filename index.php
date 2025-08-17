@@ -19,15 +19,17 @@
       <section class="flex items-center rounded-md border-2 border-r-0 h-10 p-0.5 pl-2 border-bdr-ash overflow-visible " >
            <label for="search">Search |</label>
         <input type="text" id="search" placeholder="search" value="" class=" focus:outlime-0 pl-1 h-10 text-txt-ash" >
-      <button type="search" class=" active:bg-med-drklime rounded-md w-10.75 h-10.75 flex justify-center items-center  bg-med-lime text-white font-extrabold  " >
+      <button type="search" class=" hover:cursor-pointer active:bg-med-drklime rounded-md w-10.75 h-10.75 flex justify-center items-center  bg-med-lime text-white font-extrabold  " >
           <img class="h-4 w-4 " src="./public/search.svg" alt="search">
         </button>
       </section>
         <section>
-        <button onclick="window.location.href='/login' " type="login" class="flex items-center px-2 h-10 gap-1 border-2 rounded-md border-bdr-ash active:bg-txt-ash active:text-white " >
-          login
-          <img class="h-7 w-7" src="./public/login-svg.svg" alt="login">
-        </button>
+          <a href="./login.php">
+            <div class="flex items-center px-2 h-10 gap-1 border-2 rounded-md border-bdr-ash active:bg-txt-ash active:text-white " >
+              login
+              <img class="h-7 w-7" src="./public/login-svg.svg" alt="login">
+            </div>
+          </a>
       </section>
     </header>
      <nav class="flex justify-around pl-5 h-10 items-center " >
@@ -119,7 +121,7 @@
       </div>
       </div>
     </footer>
-    <script src="index.js" >
+    <script src="./index.js" >
     </script>
 </body>
 </html>
