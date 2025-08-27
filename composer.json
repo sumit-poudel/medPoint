@@ -1,0 +1,6 @@
+{
+    "name": "your-username/your-project",
+    "description": "Simple PHP app",
+    "type": "project",
+    "require": {}
+}
