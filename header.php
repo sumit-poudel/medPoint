@@ -5,12 +5,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+  </style>
   <style type="text/tailwindcss">
     @theme {
+  --font-heading: "Inter";
+  --font-logo: "Edu NSW ACT Cursive";
   --color-med-lime: #28A745;
   --color-txt-ash: #666666;
   --color-bdr-ash: #CECECE;
   --color-med-drklime: #304D30;
+  --color-main-green: #044343;
+  --color-main-gray: #BDC3C6; 
+  --color-main-black: #263238; 
 }
     </style>
 </head>
