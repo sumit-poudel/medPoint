@@ -10,6 +10,9 @@
     @import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
   </style>
   <style type="text/tailwindcss">
+    body{
+      background: #E4E4E4;
+    }
     @theme {
   --font-heading: "Inter";
   --font-logo: "Edu NSW ACT Cursive";
