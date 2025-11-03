@@ -12,24 +12,36 @@
         <form action="post" class="flex flex-col gap-1 justify-center items-center p-2 ">
           <h3 class="self-start font-heading font-bold text-lg text-main-black ">Login:</h3>
           <fieldset class="rounded-lg border-main-gray h-15 pl-3 border-2">
-            <legend class="text-main-black ml-2 font-heading font-semibold ">Name*</legend>
+            <legend class="text-main-black ml-2 font-heading font-semibold ">UserName*</legend>
             <label for="name" class=" flex text-main-gray items-center gap-1.5">
               <img src="./public/person.svg" class="h-4 w-4" alt="person icon" /> |
               <input type="text" id="name" class=" w-full focus:outline-0 font-semibold focus:text-main-black placeholder-main-gray placeholder:font-heading placeholder:font-semibold " required placeholder="Enter your name" />
             </label>
           </fieldset>
           <fieldset class="rounded-lg border-main-gray h-15 pl-3 border-2">
-            <legend class="text-main-black ml-2 font-heading font-semibold ">password*</legend>
+            <legend class="text-main-black ml-2 font-heading font-semibold ">FullName*</legend>
             <label for="name" class=" flex text-main-gray items-center gap-1.5">
               <img src="./public/person.svg" class="h-4 w-4" alt="person icon" /> |
               <input type="text" id="name" class=" w-full focus:outline-0 font-semibold focus:text-main-black placeholder-main-gray placeholder:font-heading placeholder:font-semibold " required placeholder="Enter your name" />
             </label>
           </fieldset>
-          <button class="w-full bg-med-lime p-1 text-white font-semibold rounded-md ">login</button>
+          <fieldset class="rounded-lg border-main-gray h-15 pl-3 border-2">
+            <legend class="text-main-black ml-2 font-heading font-semibold ">Password*</legend>
+            <label for="name" class=" flex text-main-gray items-center gap-1.5">
+              <img src="./public/person.svg" class="h-4 w-4" alt="person icon" /> |
+              <input type="text" id="name" class=" w-full focus:outline-0 font-semibold focus:text-main-black placeholder-main-gray placeholder:font-heading placeholder:font-semibold " required placeholder="Enter your name" />
+            </label>
+          </fieldset>
+          <fieldset class="rounded-lg border-main-gray h-15 pl-3 border-2">
+            <legend class="text-main-black ml-2 font-heading font-semibold ">ConfirmPassword*</legend>
+            <label for="name" class=" flex text-main-gray items-center gap-1.5">
+              <img src="./public/person.svg" class="h-4 w-4" alt="person icon" /> |
+              <input type="text" id="name" class=" w-full focus:outline-0 font-semibold focus:text-main-black placeholder-main-gray placeholder:font-heading placeholder:font-semibold " required placeholder="Enter your name" />
+            </label>
+          </fieldset>
         </form>
-        <a class="w-full p-1 font-semibold text-center inline-block ">forgot password?</a>
         <hr class=" border-1 border-main-gray">
-        <a href="/medpoint/create.php" class="w-full p-2 mt-2 font-semibold rounded-md bg-blue-500 text-white text-center inline-block ">create an account</a>
+        <a href="/medpoint/index.php" class="w-full p-2 mt-2 font-semibold rounded-md bg-blue-500 text-white text-center inline-block ">create an account</a>
       </div>
     </div>
   </section>

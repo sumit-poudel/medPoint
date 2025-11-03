@@ -1,9 +1,9 @@
-<nav class=" sticky top-0">
+<nav class=" bg-inherit shadow-md sticky top-0">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-  <a href="index.php" class="flex items-center space-x-3 rtl:space-x-reverse">
+    <a href="index.php" class="flex items-center space-x-3 rtl:space-x-reverse">
       <img src="./public/med-logo.png" class="h-8" alt="Flowbite Logo" />
       <span class="self-center text-2xl font-semibold whitespace-nowrap">medpoint</span>
-  </a>
+    </a>
 
     <section class="flex items-center rounded-md border-2 border-r-0 h-10 p-0.5 pl-2 border-bdr-ash overflow-visible ">
       <label for="search">Search |</label>
@@ -13,7 +13,7 @@
       </button>
     </section>
 
-  <div class="relative flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+    <div class="relative flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
       <button type="button" class="flex text-sm bg-gray-800 rounded-full md:me-0 ring-4 ring-gray-300" id="user-menu-button" aria-expanded="false">
         <span class="sr-only">Open user menu</span>
         <img class="w-8 h-8 rounded-full" src="./public/person.svg" alt="user photo">
@@ -29,14 +29,11 @@
             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
           </li>
           <li>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
-          </li>
-          <li>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+            <a href="/medpoint/login.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
           </li>
         </ul>
       </div>
 
-  </div>
+    </div>
   </div>
 </nav>

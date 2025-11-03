@@ -8,9 +8,7 @@
     <button type="options">diabetes care</button>
     <button type="options">digestive health</button>
   </section>
-  <main class=" flex h-40 justify-center items-center ">
-    <h3>
-      to be continue...
-    </h3>
+  <main class=" m-4 h-fit flex flex-col items-center">
+    <?php include 'items.php'; ?>
   </main>
   <?php include 'footer.php'; ?>
