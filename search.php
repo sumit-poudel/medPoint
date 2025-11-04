@@ -10,7 +10,7 @@ if (isset($_GET['query'])) {
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
-        echo "<div class='grid mb-4 gap-6 grid-cols-1 xl:grid-cols-4 sm:grid-cols-2'>
+        echo "<div class='grid pb-4 border-b-2 border-gray-500 mb-4 gap-6 grid-cols-1 xl:grid-cols-4 sm:grid-cols-2'>
     <h1 class='font-semibold text-xl col-span-full'>search result..</h1>";
         while ($row = mysqli_fetch_assoc($result)) {
 

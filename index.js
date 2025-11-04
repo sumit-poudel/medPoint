@@ -1,6 +1,6 @@
 const userMenu = document.getElementById("user-menu-button");
 const dropdownMenu = document.getElementById("user-dropdown");
-userMenu.addEventListener("mouseenter", () => {
+userMenu.addEventListener("click", () => {
   dropdownMenu.classList.toggle("hidden");
 });
 dropdownMenu.addEventListener("mouseleave", () => {
@@ -17,7 +17,6 @@ const performSearch = () => {
     xmlhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         document.getElementById("searchResult").innerHTML = this.responseText;
-        window.history.pushState("", "", "?search=" + searchBar.value);
       }
     };
     xmlhttp.open("GET", "search.php?query=" + searchBar.value, true);
@@ -31,7 +30,6 @@ const performSearch = () => {
 clear.addEventListener("click", () => {
   searchBar.value = "";
   document.getElementById("searchResult").innerHTML = "";
-  window.history.pushState("", "", "/medpoint/");
 });
 searchButton.addEventListener("click", performSearch);
 searchBar.addEventListener("keydown", (e) => {
