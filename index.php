@@ -2,11 +2,8 @@
 
 <body>
   <?php include 'navbar.php'; ?>
-  <section class="flex justify-around pl-5 h-10 items-center ">
-    <button type="options">pain relief</button>
-    <button type="options">cold and flu</button>
-    <button type="options">diabetes care</button>
-    <button type="options">digestive health</button>
+  <section class="bg-[url('./public/background.jpg')] bg-cover bg-center h-64 flex flex-col justify-center items-center text-white font-bold text-3xl">
+    <h1 class="w-full pl-[10%] text-start">Nepal largest <br>e-pharmaceutical company </h1>
   </section>
   <main class=" m-4 h-fit flex flex-col items-center">
     <div id="searchResult"></div>
