@@ -5,10 +5,10 @@
       <span class="self-center text-2xl font-semibold whitespace-nowrap">medpoint</span>
     </a>
 
-    <section class="flex items-center rounded-md border-2 border-r-0 h-10 p-0.5 pl-2 border-bdr-ash overflow-visible ">
+    <section class="flex items-center rounded-md border-2 border-r-0 h-10 p-0.5 pl-2 border-bdr-ash overflow-visible "
       <label for="search">Search |</label>
-      <input type="text" id="search" placeholder="search" value="" class=" focus:outline-0 pl-1 h-10 text-txt-ash">
-      <button type="search" class=" hover:cursor-pointer active:bg-med-drklime rounded-md w-10.75 h-10.75 flex justify-center items-center  bg-med-lime text-white font-extrabold  ">
+      <input id="searchBar" type="text" placeholder="search" value="" class=" focus:outline-0 pl-1 h-10 text-txt-ash">
+      <button id="searchButton" type="search" class=" hover:cursor-pointer active:bg-med-drklime rounded-md w-10.75 h-10.75 flex justify-center items-center  bg-med-lime text-white font-extrabold  ">
         <img class="h-4 w-4 " src="./public/search.svg" alt="search">
       </button>
     </section>

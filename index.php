@@ -9,6 +9,7 @@
     <button type="options">digestive health</button>
   </section>
   <main class=" m-4 h-fit flex flex-col items-center">
+    <div id="searchResult"></div>
     <?php include 'items.php'; ?>
   </main>
   <?php include 'footer.php'; ?>

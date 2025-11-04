@@ -6,3 +6,22 @@ userMenu.addEventListener("mouseenter", () => {
 dropdownMenu.addEventListener("mouseleave", () => {
   dropdownMenu.classList.toggle("hidden");
 });
+
+const searchBar = document.getElementById("searchBar");
+const searchButton = document.getElementById("searchButton");
+
+searchButton.addEventListener("click", (e) => {
+  if (searchBar.value != "") {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("searchResult").innerHTML = this.responseText;
+        window.history.pushState("", "", "?search=" + searchBar.value);
+      }
+    };
+    xmlhttp.open("GET", "search.php?query=" + searchBar.value, true);
+    xmlhttp.send();
+  } else {
+    document.getElementById("searchResult").innerHTML = "";
+  }
+});
