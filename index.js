@@ -9,8 +9,9 @@ dropdownMenu.addEventListener("mouseleave", () => {
 
 const searchBar = document.getElementById("searchBar");
 const searchButton = document.getElementById("searchButton");
+const clear = document.getElementById("clear");
 
-searchButton.addEventListener("click", (e) => {
+const performSearch = () => {
   if (searchBar.value != "") {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
@@ -23,5 +24,18 @@ searchButton.addEventListener("click", (e) => {
     xmlhttp.send();
   } else {
     document.getElementById("searchResult").innerHTML = "";
+  }
+};
+
+// event listeners
+clear.addEventListener("click", () => {
+  searchBar.value = "";
+  document.getElementById("searchResult").innerHTML = "";
+  window.history.pushState("", "", "/medpoint/");
+});
+searchButton.addEventListener("click", performSearch);
+searchBar.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    performSearch();
   }
 });
