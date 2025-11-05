@@ -13,14 +13,14 @@ const clear = document.getElementById("clear");
 
 const performSearch = () => {
   if (searchBar.value != "") {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function () {
+    var request = new XMLHttpRequest();
+    request.open("GET", "search.php?query=" + searchBar.value);
+    request.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         document.getElementById("searchResult").innerHTML = this.responseText;
       }
     };
-    xmlhttp.open("GET", "search.php?query=" + searchBar.value, true);
-    xmlhttp.send();
+    request.send();
   } else {
     document.getElementById("searchResult").innerHTML = "";
   }
