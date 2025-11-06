@@ -4,6 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedPoint</title>
+  <link rel="icon" type="image/png" href="public/med-logo.png">
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
@@ -17,6 +19,7 @@
   --font-heading: "Inter";
   --font-logo: "Edu NSW ACT Cursive";
   --color-med-lime: #28A745;
+  --color-ash: #E4E4E4;
   --color-txt-ash: #666666;
   --color-bdr-ash: #CECECE;
   --color-med-drklime: #304D30;

@@ -28,14 +28,13 @@
         foreach ($data as $category => $items) {
             echo "<h1 class='font-semibold text-xl col-span-full'>" . $category . "</h1>";
             foreach ($items as $item) {
-                echo "<div class='flex bg-white rounded-md flex-col w-[13rem] items-start shadow-lg '>
+                echo "<div class='flex bg-white rounded-md flex-col w-[10rem] items-start shadow-lg '>
     <img src=" . $item["image_path"] . " class='p-4 transition-all ease-in-out grayscale hover:grayscale-0 aspect-square w-full border-b-2 border-bdr-ash' alt='item'> 
-    <div class='p-4 flex flex-col gap-2'>
-    <p>" . $item["name"] . "</p>
-    <em>" . $item["stock"] . " left</em>
+    <div class='p-4 h-25 overflow-hidden flex flex-col gap-2'>
     <strong>$ " . $item["price"] . "</strong>
-    <button id=" . $item['id'] . " class='text-white font-semibold hover:cursor-pointer active:bg-med-drklime bg-med-lime p-1 rounded-full w-[10rem] ' >Add to cart</button>
+    <p>" . $item["name"] . "</p>
     </div>
+    <button id=" . $item['id'] . " class='m-4 p-1 text-white font-semibold hover:cursor-pointer active:bg-med-drklime bg-med-lime rounded-full w-[8rem] ' >Add to cart</button>
     </div>";
             }
         }

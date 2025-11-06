@@ -1,4 +1,4 @@
-<nav class=" bg-[#E4E4E4] z-[40] shadow-md sticky top-0">
+<nav class=" bg-ash z-[40] shadow-md sticky top-0">
   <div class="flex w-full inherit flex-wrap items-center justify-between mx-auto p-4">
     <a href="index.php" class="flex items-center space-x-3 rtl:space-x-reverse">
       <img src="./public/med-logo.png" class="h-8" alt="Logo" />
@@ -44,10 +44,10 @@
         </div>
         <ul class="py-2" aria-labelledby="user-menu-button">
           <li>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+            <a href="profile.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">my profile</a>
           </li>
           <li>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Cart</a>
+            <a href="cart.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Cart</a>
           </li>
           <li>
             <?php

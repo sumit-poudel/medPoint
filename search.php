@@ -14,14 +14,13 @@ if (isset($_GET['query'])) {
     <h1 class='font-semibold text-xl col-span-full'>search result..</h1>";
         while ($row = mysqli_fetch_assoc($result)) {
 
-            echo "<div class='flex bg-white rounded-md flex-col w-[13rem] items-start shadow-lg '>
+            echo "<div class='flex bg-white rounded-md flex-col w-[10rem] items-start shadow-lg '>
     <img src=" . $row["image_path"] . " class='p-4 transition-all ease-in-out grayscale hover:grayscale-0 aspect-square w-full border-b-2 border-bdr-ash' alt='item'> 
-    <div class='p-4 flex flex-col gap-2'>
-    <p>" . $row["name"] . "</p>
-    <em>" . $row["stock"] . " left</em>
+    <div class='p-4 flex h-25 overflow-hidden flex-col gap-2'>
     <strong>$ " . $row["price"] . "</strong>
-    <button id=" . $row['id'] . " class='text-white font-semibold hover:cursor-pointer active:bg-med-drklime bg-med-lime p-1 rounded-full w-[10rem] ' >Add to cart</button>
+    <p>" . $row["name"] . "</p>
     </div>
+    <button id=" . $row['id'] . " class='m-4 text-white font-semibold hover:cursor-pointer active:bg-med-drklime bg-med-lime p-1 rounded-full w-[8rem] ' >Add to cart</button>
     </div>";
         }
         echo "</div>";
