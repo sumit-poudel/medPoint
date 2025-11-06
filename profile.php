@@ -1,3 +1,22 @@
+<!-- php server code -->
+<?php
+session_start();
+$conn = new mysqli("localhost", "root", "", "medpointdb");
+if ($conn->connect_error) {
+    die("Connection failed: ");
+}
+if (isset($_GET['q'])) {
+    if ($_GET['q'] == 'profile') {
+        if (!isset($_SESSION['username'])) {
+            echo "<strong class='h-full w-full text-center items-center' >log in first</strong>";
+        }
+    }
+    exit();
+}
+?>
+
+
+<!-- html code -->
 <?php include 'header.php'; ?>
 
 <body>
@@ -67,33 +86,36 @@
                     <li>
                         <strong class=" text-lg">Manage my account</strong>
                         <ul class="ml-4">
-                            <li>edit profile</li>
-                            <li>edit address</li>
+                            <li>
+                                <button id="profile">
+                                    edit profile
+                                </button>
+                            </li>
+                            <li>
+                                <button id="address">
+                                    edit address
+                                </button>
+                            </li>
                         </ul>
                     </li>
                     <li>
                         <strong class="text-lg">
-                            My orders
+                            <button id="orders">
+                                My orders
+                            </button>
                         </strong>
                     </li>
                     <li>
                         <strong class="text-lg">
-                            My reviews
+                            <button id="reviews">
+                                My reviews
+                            </button>
                         </strong>
                     </li>
                 </ul>
             </div>
-            <div class="col-span-3 h-[80vh] rounded-md bg-white shadow-xl "></div>
+            <div id="profileContent" class="col-span-3 h-[80vh] rounded-md bg-white shadow-xl "></div>
         </section>
     </main>
-    <script>
-        const userMenu = document.getElementById("user-menu-button");
-        const dropdownMenu = document.getElementById("user-dropdown");
-        userMenu.addEventListener("click", () => {
-            dropdownMenu.classList.toggle("hidden");
-        });
-        dropdownMenu.addEventListener("mouseleave", () => {
-            dropdownMenu.classList.toggle("hidden");
-        });
-    </script>
+    <script src="./js/profile.js"></script>
 </body>

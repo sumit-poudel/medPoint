@@ -27,5 +27,10 @@
   --color-main-gray: #BDC3C6; 
   --color-main-black: #263238; 
 }
+@layer base{
+  button{
+   cursor: pointer;
+  }
+}
     </style>
 </head>
