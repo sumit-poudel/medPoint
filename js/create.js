@@ -1,9 +1,13 @@
+const phone = document.getElementById("phone");
+const phoneBox = document.getElementById("phoneBox");
 const password = document.getElementById("password");
 const passwordBox = document.getElementById("passwordBox");
 const confirmpassword = document.getElementById("confirmpassword");
 const confirmpasswordBox = document.getElementById("confirmpasswordBox");
 const submit = document.getElementById("submit");
 let timeout;
+let phtimeout;
+let phPattern = /^(97|98)\d{8}$/;
 
 const disableSubmit = () => {
     submit.disabled = true;
@@ -43,5 +47,25 @@ const checkPasswords = () => {
     }, 500);
 };
 
+const checkPhone = () => {
+    clearTimeout(phtimeout);
+    phtimeout = setTimeout(() => {
+        if (phone.value.length > 0) {
+            if (phPattern.test(phone.value)) {
+                phoneBox.classList.remove("border-red-500");
+                enableSubmit();
+            }
+            else {
+                phoneBox.classList.add("border-red-500");
+                disableSubmit();
+            }
+        } else {
+            phoneBox.classList.remove("border-red-500");
+            enableSubmit();
+        }
+    }, 500);
+}
+
+phone.addEventListener("input", checkPhone);
 password.addEventListener("input", checkPasswords);
 confirmpassword.addEventListener("input", checkPasswords);

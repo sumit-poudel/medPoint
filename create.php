@@ -6,6 +6,7 @@ if (isset($_POST['submit'])) {
   $username = $_POST['username'];
   $fullname = $_POST['fullname'];
   $password = $_POST['password'];
+  $phone = $_POST['phone'];
   $confirmpassword = $_POST['confirmpassword'];
   $conn = new mysqli("localhost", "root", "", "medpointdb");
   $qry = "SELECT * FROM tbuser WHERE username = '$username'";
@@ -19,7 +20,7 @@ if (isset($_POST['submit'])) {
 </script>
 ";
   } else {
-    $sql = "INSERT INTO tbuser (username, fullname, password) VALUES ('$username', '$fullname', '$password')";
+    $sql = "INSERT INTO tbuser (username, fullname, phone, password) VALUES ('$username', '$fullname','$phone' ,'$password')";
     if (mysqli_query($conn, $sql)) {
       $_SESSION['username'] = $username;
       $_SESSION['fullname'] = $fullname;
@@ -54,28 +55,35 @@ if (isset($_POST['submit'])) {
             <legend class="text-main-black ml-2 font-heading font-semibold ">UserName*</legend>
             <label for="name" class=" flex text-main-gray items-center gap-1.5">
               <img src="./public/person.svg" class="h-4 w-4" alt="person icon" /> |
-              <input id="username" type="text" name="username" class=" w-full focus:outline-0 font-semibold focus:text-main-black placeholder-main-gray placeholder:font-heading placeholder:font-semibold " required placeholder="Enter your name" />
+              <input id="username" type="text" name="username" class=" w-full focus:outline-0 font-semibold focus:text-main-black placeholder-main-gray placeholder:font-heading placeholder:font-semibold " required placeholder="Enter your user name" />
             </label>
           </fieldset>
           <fieldset id="fullnameBox" class="rounded-lg border-main-gray h-15 pl-3 border-2">
             <legend class="text-main-black ml-2 font-heading font-semibold ">FullName*</legend>
             <label for="name" class=" flex text-main-gray items-center gap-1.5">
               <img src="./public/person.svg" class="h-4 w-4" alt="person icon" /> |
-              <input id="fullname" type="text" name="fullname" class=" w-full focus:outline-0 font-semibold focus:text-main-black placeholder-main-gray placeholder:font-heading placeholder:font-semibold " required placeholder="Enter your name" />
+              <input id="fullname" type="text" name="fullname" class=" w-full focus:outline-0 font-semibold focus:text-main-black placeholder-main-gray placeholder:font-heading placeholder:font-semibold " required placeholder="Enter your full name" />
+            </label>
+          </fieldset>
+          <fieldset id="phoneBox" class="rounded-lg border-main-gray h-15 pl-3 border-2">
+            <legend class="text-main-black ml-2 font-heading font-semibold ">Phone*</legend>
+            <label for="name" class=" flex text-main-gray items-center gap-1.5">
+              <img src="./public/person.svg" class="h-4 w-4" alt="person icon" /> |
+              <input id="phone" type="text" name="phone" class=" w-full focus:outline-0 font-semibold focus:text-main-black placeholder-main-gray placeholder:font-heading placeholder:font-semibold " required placeholder="Enter your phone number" />
             </label>
           </fieldset>
           <fieldset id="passwordBox" class="rounded-lg border-main-gray h-15 pl-3 border-2">
             <legend class="text-main-black ml-2 font-heading font-semibold ">Password*</legend>
             <label for="name" class=" flex text-main-gray items-center gap-1.5">
               <img src="./public/person.svg" class="h-4 w-4" alt="person icon" /> |
-              <input id="password" type="password" name="password" class=" w-full focus:outline-0 font-semibold focus:text-main-black placeholder-main-gray placeholder:font-heading placeholder:font-semibold " required placeholder="Enter your name" />
+              <input id="password" type="password" name="password" class=" w-full focus:outline-0 font-semibold focus:text-main-black placeholder-main-gray placeholder:font-heading placeholder:font-semibold " required placeholder="password" />
             </label>
           </fieldset>
           <fieldset id="confirmpasswordBox" class="rounded-lg border-main-gray h-15 pl-3 border-2">
             <legend class="text-main-black ml-2 font-heading font-semibold ">ConfirmPassword*</legend>
             <label for="name" class=" flex text-main-gray items-center gap-1.5">
               <img src="./public/person.svg" class="h-4 w-4" alt="person icon" /> |
-              <input id="confirmpassword" type="password" name="confirmpassword" class=" w-full focus:outline-0 font-semibold focus:text-main-black placeholder-main-gray placeholder:font-heading placeholder:font-semibold " required placeholder="Enter your name" />
+              <input id="confirmpassword" type="password" name="confirmpassword" class=" w-full focus:outline-0 font-semibold focus:text-main-black placeholder-main-gray placeholder:font-heading placeholder:font-semibold " required placeholder="confirm password" />
             </label>
           </fieldset>
           <hr class=" border-1 border-main-gray">
