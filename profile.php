@@ -24,26 +24,28 @@ if (isset($_GET['q'])) {
             echo "<div class='p-4 w-full shadow-md rounded-md bg-white'><strong>Full Name:</strong><br/><em>" . $_SESSION['fullname'] . "</em></div>";
             echo "</div>";
             echo "<table class='bg-white table-auto shadow-md rounded-md w-full'>";
-            echo "<thead>";
-            echo "<tr class='border-b text-center' >";
-            echo "<th class='p-2' >Name</th>";
-            echo "<th class='p-2' >Image</th>";
-            echo "<th class='p-2' >Price</th>";
-            echo "<th class='p-2' >Quantity</th>";
-            echo "</tr>";
-            echo "</thead>";
-            echo "<tbody>";
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<tr class='text-center' >";
-                echo "<td>" . $row['name'] . "</td>";
-                echo "<td><img class='h-20 mx-auto p-2 aspect-auto' src=" . $row['image_path'] . " /></td>";
-                echo "<td>" . $row['count'] * $row['price'] . "</td>";
-                echo "<td>" . $row['count'] . "</td>";
+            if (mysqli_num_rows($result) > 0) {
+                echo "<thead>";
+                echo "<tr class='border-b text-center' >";
+                echo "<th class='p-2' >Name</th>";
+                echo "<th class='p-2' >Image</th>";
+                echo "<th class='p-2' >Price</th>";
+                echo "<th class='p-2' >Quantity</th>";
                 echo "</tr>";
+                echo "</thead>";
+                echo "<tbody>";
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<tr class='text-center' >";
+                    echo "<td>" . $row['name'] . "</td>";
+                    echo "<td><img class='h-20 mx-auto p-2 aspect-auto' src=" . $row['image_path'] . " /></td>";
+                    echo "<td>" . $row['count'] * $row['price'] . "</td>";
+                    echo "<td>" . $row['count'] . "</td>";
+                    echo "</tr>";
+                }
+                echo "</tbody>";
+                echo "</table>";
+                echo "</section>";
             }
-            echo "</tbody>";
-            echo "</table>";
-            echo "</section>";
             break;;
         case 'address':
             echo "<div class='w-full h-full flex justify-center items-center'>";
@@ -51,26 +53,34 @@ if (isset($_GET['q'])) {
             echo "</div>";
             break;
         case 'orders':
-            echo "<table class='bg-white table-auto shadow-md rounded-md w-full'>";
-            echo "<thead>";
-            echo "<tr class='border-b text-center' >";
-            echo "<th class='p-2' >Name</th>";
-            echo "<th class='p-2' >Image</th>";
-            echo "<th class='p-2' >Price</th>";
-            echo "<th class='p-2' >Quantity</th>";
-            echo "</tr>";
-            echo "</thead>";
-            echo "<tbody>";
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<tr class='text-center' >";
-                echo "<td>" . $row['name'] . "</td>";
-                echo "<td><img class='h-20 mx-auto p-2 aspect-auto' src=" . $row['image_path'] . " /></td>";
-                echo "<td>" . $row['count'] * $row['price'] . "</td>";
-                echo "<td>" . $row['count'] . "</td>";
+            if (mysqli_num_rows($result) > 0) {
+                echo "<table class='bg-white table-auto shadow-md rounded-md w-full'>";
+                echo "<thead>";
+                echo "<tr class='border-b text-center' >";
+                echo "<th class='p-2' >Date</th>";
+                echo "<th class='p-2' >Name</th>";
+                echo "<th class='p-2' >Image</th>";
+                echo "<th class='p-2' >Price</th>";
+                echo "<th class='p-2' >Quantity</th>";
                 echo "</tr>";
+                echo "</thead>";
+                echo "<tbody>";
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<tr class='text-center' >";
+                    echo "<td>" . $row['buydate'] . "</td>";
+                    echo "<td>" . $row['name'] . "</td>";
+                    echo "<td><img class='h-20 mx-auto p-2 aspect-auto' src=" . $row['image_path'] . " /></td>";
+                    echo "<td>" . $row['count'] * $row['price'] . "</td>";
+                    echo "<td>" . $row['count'] . "</td>";
+                    echo "</tr>";
+                }
+                echo "</tbody>";
+                echo "</table>";
+            } else {
+                echo "<div class='w-full h-full flex justify-center items-center'>";
+                echo "<strong class='w-full text-center text-5xl items-center' >No orders Yet</strong>";
+                echo "</div>";
             }
-            echo "</tbody>";
-            echo "</table>";
             break;
         default:
             echo "Invalid Request";
