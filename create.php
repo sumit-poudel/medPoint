@@ -24,6 +24,7 @@ if (isset($_POST['submit'])) {
     if (mysqli_query($conn, $sql)) {
       $_SESSION['username'] = $username;
       $_SESSION['fullname'] = $fullname;
+      setcookie('username', $username, time() + (86400 * 30), "/");
       echo "<script>window.location.href = '/medpoint'</script>";
     } else {
       echo "<script>

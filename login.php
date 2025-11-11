@@ -14,6 +14,7 @@ if (isset($_POST['login'])) {
     if ($password === $row['password']) {
       $_SESSION['username'] = $username;
       $_SESSION['fullname'] = $row['fullname'];
+      setcookie('username', $username, time() + (86400 * 30), "/");
       echo "<script>window.location.href = '/medpoint'</script>";
     } else {
       echo "<script>

@@ -40,13 +40,12 @@
         <p>" . $item["name"] . "</p>
     </div>";
                 if (isset($_SESSION['username'])) {
-                    echo "<a href='cart.php?id=" . $item['id'] . "&user=" . $_SESSION['username'] . "'
-       class='cartButtons text-center m-4 p-1 text-white font-semibold hover:cursor-pointer active:bg-med-drklime bg-med-lime rounded-full w-[8rem]'>
+                    echo "<button id=" . $item['id'] . " class='cartButtons text-center m-4 p-1 text-white font-semibold hover:cursor-pointer active:bg-med-drklime bg-med-lime rounded-full w-[8rem]'>
        Add to cart
     </a>
 </div>";
                 } else {
-                    echo "<button class='cartButtons text-center m-4 p-1 text-white font-semibold hover:cursor-pointer active:bg-med-drklime bg-med-lime rounded-full w-[8rem]'>
+                    echo "<button class='text-center m-4 p-1 text-white font-semibold hover:cursor-pointer active:bg-med-drklime bg-med-lime rounded-full w-[8rem]'>
        Add to cart
     </button>
 </div>";
