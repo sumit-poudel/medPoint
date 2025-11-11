@@ -16,10 +16,20 @@ if (isset($_POST['login'])) {
       $_SESSION['fullname'] = $row['fullname'];
       echo "<script>window.location.href = '/medpoint'</script>";
     } else {
-      echo "Password didnt match";
+      echo "<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('password').classList.add('border-red-500');
+  });
+</script>
+";
     }
   } else {
-    echo "Username didnt match";
+    echo "<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('username').classList.add('border-red-500');
+  });
+</script>
+";
   }
   mysqli_close($conn);
 }
@@ -36,18 +46,18 @@ if (isset($_POST['login'])) {
       <div class="p-4 border-l-2 border-main-gray ">
         <form action="" method="post" class="flex flex-col gap-1 justify-center items-center p-2 ">
           <h3 class="self-start font-heading font-bold text-lg text-main-black ">Login:</h3>
-          <fieldset class="rounded-lg border-main-gray h-15 pl-3 border-2">
+          <fieldset id="username" class="rounded-lg border-main-gray h-15 pl-3 border-2">
             <legend class="text-main-black ml-2 font-heading font-semibold ">UserName*</legend>
-            <label for="username" class=" flex text-main-gray items-center gap-1.5">
+            <label for="username" class="flex text-main-gray items-center gap-1.5">
               <img src="./public/person.svg" class="h-4 w-4" alt="person icon" /> |
-              <input type="text" name="username" id="username" class=" w-full focus:outline-0 font-semibold focus:text-main-black placeholder-main-gray placeholder:font-heading placeholder:font-semibold " required placeholder="Enter your name" />
+              <input type="text" name="username" class=" w-full focus:outline-0 font-semibold focus:text-main-black placeholder-main-gray placeholder:font-heading placeholder:font-semibold " required placeholder="Enter your name" />
             </label>
           </fieldset>
-          <fieldset class="rounded-lg border-main-gray h-15 pl-3 border-2">
+          <fieldset id="password" class="rounded-lg border-main-gray h-15 pl-3 border-2">
             <legend class="text-main-black ml-2 font-heading font-semibold ">password*</legend>
             <label for="password" class=" flex text-main-gray items-center gap-1.5">
               <img src="./public/person.svg" class="h-4 w-4" alt="person icon" /> |
-              <input type="password" name="password" id="password" class=" w-full focus:outline-0 font-semibold focus:text-main-black placeholder-main-gray placeholder:font-heading placeholder:font-semibold " required placeholder="Enter your name" />
+              <input type="password" name="password" class=" w-full focus:outline-0 font-semibold focus:text-main-black placeholder-main-gray placeholder:font-heading placeholder:font-semibold " required placeholder="Enter your name" />
             </label>
           </fieldset>
           <button name="login" class="w-full bg-med-lime p-1 text-white font-semibold rounded-md ">login</button>

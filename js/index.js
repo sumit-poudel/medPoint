@@ -10,6 +10,7 @@ dropdownMenu.addEventListener("mouseleave", () => {
 const searchBar = document.getElementById("searchBar");
 const searchButton = document.getElementById("searchButton");
 const clear = document.getElementById("clear");
+let cart = [];
 
 const performSearch = () => {
   if (searchBar.value != "") {
@@ -26,6 +27,11 @@ const performSearch = () => {
   }
 };
 
+function getCookies() {
+  console.log(document.cookie);
+}
+getCookies();
+
 // event listeners
 clear.addEventListener("click", () => {
   searchBar.value = "";
@@ -36,4 +42,13 @@ searchBar.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     performSearch();
   }
+});
+
+const buttons = document.querySelectorAll(".cartButtons");
+buttons.forEach((button) => {
+  button.addEventListener("click", function (e) {
+    const productId = e.srcElement.attributes.id.value;
+    cart.push(productId);
+    console.log(...cart);
+  });
 });

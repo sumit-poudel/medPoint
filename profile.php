@@ -6,10 +6,74 @@ if ($conn->connect_error) {
     die("Connection failed: ");
 }
 if (isset($_GET['q'])) {
-    if ($_GET['q'] == 'profile') {
-        if (!isset($_SESSION['username'])) {
-            echo "<strong class='h-full w-full text-center items-center' >log in first</strong>";
-        }
+    $qry = $_GET['q'];
+    if (!isset($_SESSION['username'])) {
+        echo "<div class='w-full h-full flex justify-center items-center'>";
+        echo "<strong class='w-full text-center text-5xl items-center' >log in first</strong>";
+        echo "</div>";
+        exit();
+    }
+    $user = $_SESSION['username'];
+    $query = "SELECT * FROM tbproduct INNER JOIN tbcart WHERE tbproduct.id = tbcart.pid AND tbcart.username = '$user'";
+    $result = mysqli_query($conn, $query);
+    switch ($qry) {
+        case 'profile':
+            echo "<section class='flex flex-col w-full h-full gap-2 flex-cols' >";
+            echo "<div class='w-full flex gap-4' >";
+            echo "<div class='p-4 w-full shadow-md rounded-md bg-white' ><strong>User Name:</strong><br/><em>" . $_SESSION['username'] . "</em></div>";
+            echo "<div class='p-4 w-full shadow-md rounded-md bg-white'><strong>Full Name:</strong><br/><em>" . $_SESSION['fullname'] . "</em></div>";
+            echo "</div>";
+            echo "<table class='bg-white table-auto shadow-md rounded-md w-full'>";
+            echo "<thead>";
+            echo "<tr class='border-b text-center' >";
+            echo "<th class='p-2' >Name</th>";
+            echo "<th class='p-2' >Image</th>";
+            echo "<th class='p-2' >Price</th>";
+            echo "<th class='p-2' >Quantity</th>";
+            echo "</tr>";
+            echo "</thead>";
+            echo "<tbody>";
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr class='text-center' >";
+                echo "<td>" . $row['name'] . "</td>";
+                echo "<td><img class='h-20 mx-auto p-2 aspect-auto' src=" . $row['image_path'] . " /></td>";
+                echo "<td>" . $row['count'] * $row['price'] . "</td>";
+                echo "<td>" . $row['count'] . "</td>";
+                echo "</tr>";
+            }
+            echo "</tbody>";
+            echo "</table>";
+            echo "</section>";
+            break;;
+        case 'address':
+            echo "<div class='w-full h-full flex justify-center items-center'>";
+            echo "Address Edit Section";
+            echo "</div>";
+            break;
+        case 'orders':
+            echo "<table class='bg-white table-auto shadow-md rounded-md w-full'>";
+            echo "<thead>";
+            echo "<tr class='border-b text-center' >";
+            echo "<th class='p-2' >Name</th>";
+            echo "<th class='p-2' >Image</th>";
+            echo "<th class='p-2' >Price</th>";
+            echo "<th class='p-2' >Quantity</th>";
+            echo "</tr>";
+            echo "</thead>";
+            echo "<tbody>";
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr class='text-center' >";
+                echo "<td>" . $row['name'] . "</td>";
+                echo "<td><img class='h-20 mx-auto p-2 aspect-auto' src=" . $row['image_path'] . " /></td>";
+                echo "<td>" . $row['count'] * $row['price'] . "</td>";
+                echo "<td>" . $row['count'] . "</td>";
+                echo "</tr>";
+            }
+            echo "</tbody>";
+            echo "</table>";
+            break;
+        default:
+            echo "Invalid Request";
     }
     exit();
 }
@@ -105,16 +169,9 @@ if (isset($_GET['q'])) {
                             </button>
                         </strong>
                     </li>
-                    <li>
-                        <strong class="text-lg">
-                            <button id="reviews">
-                                My reviews
-                            </button>
-                        </strong>
-                    </li>
                 </ul>
             </div>
-            <div id="profileContent" class="col-span-3 h-[80vh] rounded-md bg-white shadow-xl "></div>
+            <div id="profileContent" class="col-span-3 h-[80vh]"></div>
         </section>
     </main>
     <script src="./js/profile.js"></script>

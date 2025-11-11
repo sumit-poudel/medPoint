@@ -8,10 +8,22 @@ dropdownMenu.addEventListener("mouseleave", () => {
 });
 
 const profile = document.getElementById("profile");
+const address = document.getElementById("address");
+const orders = document.getElementById("orders");
+const reviews = document.getElementById("reviews");
+
+// initial load
+window.onload = ajaxComponent("profile");
 
 // event listeners
 profile.addEventListener("click", () => {
   ajaxComponent("profile");
+});
+address.addEventListener("click", () => {
+  ajaxComponent("address");
+});
+orders.addEventListener("click", () => {
+  ajaxComponent("orders");
 });
 
 // ajax component
