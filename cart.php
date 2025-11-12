@@ -20,9 +20,6 @@ if (isset($_GET['id']) && isset($_GET['user'])) {
     } else {
         $sql = "INSERT INTO tbcart (username, pid, count,buydate) VALUES ('$user', $id, 1, '$date')";
         mysqli_query($conn, $sql);
-
-        echo "<script>window.location.href = '/medpoint'</script>";
     }
 } else {
-    echo "<script>alert('login first');</script>";
 }

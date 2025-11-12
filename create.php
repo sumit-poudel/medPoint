@@ -80,6 +80,7 @@ if (isset($_POST['submit'])) {
               <input id="password" type="password" name="password" class=" w-full focus:outline-0 font-semibold focus:text-main-black placeholder-main-gray placeholder:font-heading placeholder:font-semibold " required placeholder="password" />
             </label>
           </fieldset>
+          <em id="error"></em>
           <fieldset id="confirmpasswordBox" class="rounded-lg border-main-gray h-15 pl-3 border-2">
             <legend class="text-main-black ml-2 font-heading font-semibold ">ConfirmPassword*</legend>
             <label for="name" class=" flex text-main-gray items-center gap-1.5">

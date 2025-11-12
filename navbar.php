@@ -44,21 +44,27 @@
         </div>
         <ul class="py-2" aria-labelledby="user-menu-button">
           <li>
-            <a href="profile.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">my profile</a>
           </li>
-          <li>
-            <?php
-            if (isset($_SESSION['username'])) {
-              echo "<a href='/medpoint/logout.php' class='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white'>
+          <?php
+          if (isset($_SESSION['username'])) {
+            echo "<li>";
+            echo "<a href='profile.php' class='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white'>
+                 cart 
+              </a>";
+            echo "</li>";
+            echo "<li>";
+            echo "<a href='/medpoint/logout.php' class='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white'>
                   sign out
               </a>";
-            } else {
-              echo "<a href='/medpoint/login.php' class='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white'>
+            echo "</li>";
+          } else {
+            echo "<li>";
+            echo "<a href='/medpoint/login.php' class='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white'>
                 sign in
             </a>";
-            }
-            ?>
-          </li>
+            echo "</li>";
+          }
+          ?>
         </ul>
       </div>
 
