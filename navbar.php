@@ -7,12 +7,11 @@
 
     <section class="flex items-center rounded-md border-2 border-r-0 h-10 p-0.5 pl-2 border-bdr-ash overflow-visible "
       <label for="search">Search |</label>
-      <input id="searchBar" type="text" placeholder="search" value="" class=" focus:outline-0 pl-1 h-10 text-txt-ash">
+    <label for="searchBar"></label><input id="searchBar" type="text" placeholder="search" value="" class=" focus:outline-0 pl-1 h-10 text-txt-ash">
       <button id="clear" class="px-2">clear</button>
-      <button id="searchButton" type="search" class=" hover:cursor-pointer active:bg-med-drklime rounded-md w-10.75 h-10.75 flex justify-center items-center  bg-med-lime text-white font-extrabold  ">
+      <button id="searchButton" type="submit" class=" hover:cursor-pointer active:bg-med-drklime rounded-md w-10.75 h-10.75 flex justify-center items-center  bg-med-lime text-white font-extrabold  ">
         <img class="h-4 w-4 " src="./public/search.svg" alt="search">
       </button>
-    </section>
 
     <div class="relative flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
       <button type="button" class="flex text-sm bg-gray-800 rounded-full md:me-0 ring-4 ring-gray-300" id="user-menu-button" aria-expanded="false">
@@ -46,8 +45,8 @@
           <li>
           </li>
           <?php
+          echo "<li>";
           if (isset($_SESSION['username'])) {
-            echo "<li>";
             echo "<a href='profile.php' class='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white'>
                  cart 
               </a>";
@@ -56,14 +55,12 @@
             echo "<a href='/medpoint/logout.php' class='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white'>
                   sign out
               </a>";
-            echo "</li>";
           } else {
-            echo "<li>";
             echo "<a href='/medpoint/login.php' class='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white'>
                 sign in
             </a>";
-            echo "</li>";
           }
+          echo "</li>";
           ?>
         </ul>
       </div>

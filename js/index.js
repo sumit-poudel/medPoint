@@ -19,11 +19,11 @@ const searchButton = document.getElementById("searchButton");
 const clear = document.getElementById("clear");
 
 const performSearch = () => {
-  if (searchBar.value != "") {
-    var request = new XMLHttpRequest();
+  if (searchBar.value !== "") {
+    let request = new XMLHttpRequest();
     request.open("GET", "search.php?query=" + searchBar.value);
     request.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {
+      if (this.readyState === 4 && this.status === 200) {
         document.getElementById("searchResult").innerHTML = this.responseText;
       }
     };

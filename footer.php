@@ -1,6 +1,6 @@
   <footer class=" w-full bg-med-drklime text-white">
 
-    <div class="w-full p-4 flex justify-around">
+    div class="w-full p-4 flex justify-around">
       <div>
         <h3 class="font-semibold  mb-3.5">Contact</h3>
         <p class=" gap-2.5 mb-2">
