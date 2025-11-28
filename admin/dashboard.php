@@ -1,0 +1,44 @@
+<?php include '../header.php' ?>
+
+<body>
+  <?php include '../nav.php'; ?>
+
+  <div class="flex flex-1 flex-col">
+
+    <div class="p-4 space-y-4">
+      <div class="flex items-center justify-between space-y-2">
+        <h1 class="text-2xl font-bold tracking-tight">Products</h1>
+        <a class="font-semibold p-2 bg-black text-white rounded-md" href="/dashboard/pages/products/create">
+          + Add Product</a>
+      </div>
+
+      <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div class="rounded-xl border border-bdr-ash py-6">
+          <div class="flex flex-col gap-1.5 px-6">
+            <div class="text-sm">Total Sales</div>
+            <div class="font-semibold font-display text-2xl lg:text-3xl">$30,230</div>
+          </div>
+        </div>
+        <div class="rounded-xl border border-bdr-ash py-6">
+          <div class="flex flex-col gap-1.5 px-6">
+            <div class="text-sm">Number of Sales</div>
+            <div class="font-semibold font-display text-2xl lg:text-3xl">$30,230</div>
+          </div>
+        </div>
+        <div class="rounded-xl border border-bdr-ash py-6">
+          <div class="flex flex-col gap-1.5 px-6">
+            <div class="text-sm">Affiliate</div>
+            <div class="font-semibold font-display text-2xl lg:text-3xl">$30,230</div>
+          </div>
+        </div>
+        <div class="rounded-xl border border-bdr-ash py-6">
+          <div class="flex flex-col gap-1.5 px-6">
+            <div class="text-sm">Discounts</div>
+            <div class="font-semibold font-display text-2xl lg:text-3xl">$30,230</div>
+          </div>
+        </div>
+      </div>
+
+</body>
+
+</html>
