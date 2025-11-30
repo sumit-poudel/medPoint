@@ -1,40 +1,41 @@
-<?php include 'header.php' ?>
+<?php include "header.php"; ?>
 
 <?php
 session_start();
-if (isset($_POST['login'])) {
-  $conn = new mysqli('localhost', 'root', '', 'medpointdb');
-  $username = $_POST['username'];
-  $password = $_POST['password'];
-  $conn = new mysqli("localhost", "root", "", "medpointdb");
-  $sql = "SELECT * from tbuser WHERE username='$username'";
-  $result = mysqli_query($conn, $sql);
-  if (mysqli_num_rows($result) > 0) {
-    $row = mysqli_fetch_assoc($result);
-    if ($password === $row['password']) {
-      $_SESSION['username'] = $username;
-      $_SESSION['fullname'] = $row['fullname'];
-      setcookie('username', $username, time() + (86400 * 30), "/");
-      echo "<script>window.location.href = '/medpoint'</script>";
-    } else {
-      echo "<script>
+if (isset($_POST["login"])) {
+    $conn = new mysqli("localhost", "root", "", "medpointdb");
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+    $conn = new mysqli("localhost", "root", "", "medpointdb");
+    $sql = "SELECT * from tbuser WHERE username='$username'";
+    $result = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        if ($password === $row["password"]) {
+            $_SESSION["username"] = $username;
+            $_SESSION["fullname"] = $row["fullname"];
+            $_SESSION["level"] = $row["level"];
+            setcookie("username", $username, time() + 86400 * 30, "/");
+            echo "<script>window.location.href = '/medpoint'</script>";
+        } else {
+            echo "<script>
   document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('passwordBox').classList.add('border-red-500');
     document.getElementById('passError').innerText = 'Incorrect password';
   });
 </script>
 ";
-    }
-  } else {
-    echo "<script>
+        }
+    } else {
+        echo "<script>
   document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('usernameBox').classList.add('border-red-500');
     document.getElementById('userError').innerText = 'Username not found';
   });
 </script>
 ";
-  }
-  mysqli_close($conn);
+    }
+    mysqli_close($conn);
 }
 ?>
 

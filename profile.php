@@ -5,23 +5,27 @@ $conn = new mysqli("localhost", "root", "", "medpointdb");
 if ($conn->connect_error) {
     die("Connection failed: ");
 }
-if (isset($_GET['q'])) {
-    $qry = $_GET['q'];
-    if (!isset($_SESSION['username'])) {
+if (isset($_GET["q"])) {
+    $qry = $_GET["q"];
+    if (!isset($_SESSION["username"])) {
         echo "<div class='w-full h-full flex justify-center items-center'>";
         echo "<strong class='w-full text-center text-5xl items-center' >log in first</strong>";
         echo "</div>";
         exit();
     }
-    $user = $_SESSION['username'];
+    $user = $_SESSION["username"];
     $query = "SELECT * FROM tbproduct INNER JOIN tbcart WHERE tbproduct.id = tbcart.pid AND tbcart.username = '$user'";
     $result = mysqli_query($conn, $query);
     switch ($qry) {
-        case 'profile':
+        case "profile":
             echo "<section class='flex flex-col w-full h-full gap-2 flex-cols' >";
             echo "<div class='w-full flex gap-4' >";
-            echo "<div class='p-4 w-full shadow-md rounded-md bg-white' ><strong>User Name:</strong><br/><em>" . $_SESSION['username'] . "</em></div>";
-            echo "<div class='p-4 w-full shadow-md rounded-md bg-white'><strong>Full Name:</strong><br/><em>" . $_SESSION['fullname'] . "</em></div>";
+            echo "<div class='p-4 w-full shadow-md rounded-md bg-white' ><strong>User Name:</strong><br/><em>" .
+                $_SESSION["username"] .
+                "</em></div>";
+            echo "<div class='p-4 w-full shadow-md rounded-md bg-white'><strong>Full Name:</strong><br/><em>" .
+                $_SESSION["fullname"] .
+                "</em></div>";
             echo "</div>";
             echo "<table class='bg-white table-auto shadow-md rounded-md w-full'>";
             if (mysqli_num_rows($result) > 0) {
@@ -36,23 +40,25 @@ if (isset($_GET['q'])) {
                 echo "<tbody>";
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<tr class='text-center' >";
-                    echo "<td>" . $row['name'] . "</td>";
-                    echo "<td><img class='h-20 mx-auto p-2 aspect-auto' src=" . $row['image_path'] . " /></td>";
-                    echo "<td>" . $row['count'] * $row['price'] . "</td>";
-                    echo "<td>" . $row['count'] . "</td>";
+                    echo "<td>" . $row["name"] . "</td>";
+                    echo "<td><img class='h-20 mx-auto p-2 aspect-auto' src=" .
+                        $row["image_path"] .
+                        " /></td>";
+                    echo "<td>" . $row["count"] * $row["price"] . "</td>";
+                    echo "<td>" . $row["count"] . "</td>";
                     echo "</tr>";
                 }
                 echo "</tbody>";
                 echo "</table>";
                 echo "</section>";
             }
-            break;;
-        case 'address':
+            break;
+        case "address":
             echo "<div class='w-full h-full flex justify-center items-center'>";
             echo "Address Edit Section";
             echo "</div>";
             break;
-        case 'orders':
+        case "orders":
             if (mysqli_num_rows($result) > 0) {
                 echo "<table class='bg-white table-auto shadow-md rounded-md w-full'>";
                 echo "<thead>";
@@ -67,11 +73,13 @@ if (isset($_GET['q'])) {
                 echo "<tbody>";
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<tr class='text-center' >";
-                    echo "<td>" . $row['buydate'] . "</td>";
-                    echo "<td>" . $row['name'] . "</td>";
-                    echo "<td><img class='h-20 mx-auto p-2 aspect-auto' src=" . $row['image_path'] . " /></td>";
-                    echo "<td>" . $row['count'] * $row['price'] . "</td>";
-                    echo "<td>" . $row['count'] . "</td>";
+                    echo "<td>" . $row["buydate"] . "</td>";
+                    echo "<td>" . $row["name"] . "</td>";
+                    echo "<td><img class='h-20 mx-auto p-2 aspect-auto' src=" .
+                        $row["image_path"] .
+                        " /></td>";
+                    echo "<td>" . $row["count"] * $row["price"] . "</td>";
+                    echo "<td>" . $row["count"] . "</td>";
                     echo "</tr>";
                 }
                 echo "</tbody>";
@@ -91,7 +99,7 @@ if (isset($_GET['q'])) {
 
 
 <!-- html code -->
-<?php include 'header.php'; ?>
+<?php include "header.php"; ?>
 
 <body>
     <nav class=" bg-ash z-[40] shadow-md sticky top-0">
@@ -107,26 +115,24 @@ if (isset($_GET['q'])) {
                     <img class="w-8 h-8 rounded-full" src="./public/person.svg" alt="user photo">
                 </button>
                 <!-- Dropdown menu -->
-                <div class="z-50 hidden absolute top-5 right-0  my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow-sm dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
+                <div class="z-50 min-w-32 text-start hidden absolute top-5 right-0  my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow-sm dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
                     <div class="px-4 py-3">
                         <span class="block text-sm text-gray-900 dark:text-white">
                             <?php
                             session_start();
-                            if (isset($_SESSION['username'])) {
-                                echo $_SESSION['username'];
+                            if (isset($_SESSION["username"])) {
+                                echo $_SESSION["username"];
                             } else {
                                 echo "Guest";
                             }
                             ?>
                         </span>
                         <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">
-                            <?php
-                            if (isset($_SESSION['fullname'])) {
-                                echo $_SESSION['fullname'];
+                            <?php if (isset($_SESSION["fullname"])) {
+                                echo $_SESSION["fullname"];
                             } else {
                                 echo "Welcome to MedPoint";
-                            }
-                            ?>
+                            } ?>
                         </span>
                     </div>
                     <ul class="py-2" aria-labelledby="user-menu-button">
@@ -134,8 +140,7 @@ if (isset($_GET['q'])) {
                             <a href="index.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Home</a>
                         </li>
                         <li>
-                            <?php
-                            if (isset($_SESSION['username'])) {
+                            <?php if (isset($_SESSION["username"])) {
                                 echo "<a href='/medpoint/logout.php' class='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white'>
                   sign out
               </a>";
@@ -143,8 +148,7 @@ if (isset($_GET['q'])) {
                                 echo "<a href='/medpoint/login.php' class='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white'>
                 sign in
             </a>";
-                            }
-                            ?>
+                            } ?>
                         </li>
                     </ul>
                 </div>
@@ -179,6 +183,23 @@ if (isset($_GET['q'])) {
                             </button>
                         </strong>
                     </li>
+                    <?php if (isset($_SESSION["level"])) {
+                        $level = $_SESSION["level"];
+                        switch ($level) {
+                            case 1:
+                                echo "<li><strong class='text-lg'><a href='/medpoint/admin/dashboard.php'>Dashboard</a></strong></li>";
+                                break;
+                            case 2:
+                                echo "<li><strong class='text-lg'><a href='/medpoint/seller/dashboard.php'>Dashboard</a></strong></li>";
+                                break;
+                            case 3:
+                                echo "";
+                                break;
+                            default:
+                                echo "error";
+                                break;
+                        }
+                    } ?>
                 </ul>
             </div>
             <div id="profileContent" class="col-span-3 h-[80vh]"></div>

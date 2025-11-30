@@ -4,7 +4,7 @@ if (!isset($_SESSION["username"])) {
     echo "<script>window.location.href = '/medpoint/login.php';</script>";
     exit();
 }
-if ($_SESSION["level"] != 1) {
+if ($_SESSION["level"] != 2) {
     echo "<script>window.location.href = '/medpoint/index.php';</script>";
     exit();
 }
@@ -17,7 +17,11 @@ if ($_SESSION["level"] != 1) {
   <div class="flex flex-1 flex-col">
 
     <div class="p-4 space-y-4">
+      <div class="flex items-center justify-between space-y-2">
         <h1 class="text-2xl font-bold tracking-tight">Products</h1>
+        <a class="font-semibold p-2 bg-black text-white rounded-md" href="/dashboard/pages/products/create">
+          + Add Product</a>
+      </div>
 
       <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <div class="rounded-xl border border-bdr-ash py-6">
