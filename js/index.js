@@ -15,6 +15,7 @@ const performSearch = () => {
     request.onreadystatechange = function () {
       if (this.readyState === 4 && this.status === 200) {
         document.getElementById("searchResult").innerHTML = this.responseText;
+        addToCart("search-items", true);
       }
     };
     request.send();
@@ -29,17 +30,18 @@ const cart = (id, username, event) => {
   request.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       clearTimeout(timeout);
-      event.target.innerText = "Added!!"
+      event.target.innerText = "Added!!";
       timeout = setTimeout(() => {
-        event.target.innerText = "Add to cart"
+        event.target.innerText = "Add to cart";
       }, 500);
     }
   };
   request.send();
-}
+};
 
 // event listeners
 clear.addEventListener("click", () => {
+  addToCart("search-items", false);
   searchBar.value = "";
   document.getElementById("searchResult").innerHTML = "";
 });
@@ -50,10 +52,24 @@ searchBar.addEventListener("keydown", (e) => {
   }
 });
 
-const buttons = document.querySelectorAll(".cartButtons");
-buttons.forEach((button) => {
-  button.addEventListener("click", function (event) {
-    const username = getCookie("username");
-    cart(event.target.id, username, event);
+function addToCart(klas, add) {
+  const buttons = document.querySelectorAll("." + klas);
+  if (!add) {
+    buttons.forEach((button) => {
+      button.removeEventListener("click", gatherInfo);
+      return;
+    });
+  }
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", gatherInfo);
   });
-});
+
+  function gatherInfo(event) {
+    const username = getCookie("username");
+    const id = event.target.getAttribute("data-id");
+    cart(id, username, event);
+  }
+}
+
+addToCart("cartButtons", true);
